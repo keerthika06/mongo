@@ -184,9 +184,123 @@ MongoClient.connect(connectionURL,(error,client)=>{
     //     }
     //     console.log(Users)})
 
-    
-   
-   })
+
+//regex
+    // db.collection("Users").find({ name : { $regex : 'k.*'}}).toArray((error,Users)=>{
+    //         if(error){
+    //            console.log(error)
+    //         }
+    //         console.log(Users)
+    //     })
+    // db.collection("Users").find({name : {$regex : "G.*",$options : 'i'}}).toArray((error,Users)=>{
+    //     if(error){
+    //         console.log(error)
+    //     }
+    //     console.log(Users)
+    // })
+
+
+    //where  - both the values should be the same
+
+    //     db.collection("Users").find({$where : function() { return (this.empid == this.mongodb)}}).toArray((error,Users )=>{
+    //         if(error)
+    //     {
+    //         console.log("error")
+    //     }       
+    // console.log(Users)
+    // })
+
+
+    //All operator
+//     db.collection("Users").find({" address.country" : { $all : ["india"]}}).toArray((error,Users )=>{
+//         if(error)
+//     {
+//         console.log("error")
+//     }       
+// console.log(Users)
+// })
+
+//elemmatch
+
+// db.collection("Users").find({"address": { $elemMatch : {"country" : " India", "state":"Karnataka"}}}).toArray((error,Users )=>{
+//     if(error)
+// {
+//     console.log("error")
+// }       
+// console.log(Users)
+// })
+
+// to find elements based on array size
+// db.collection("Users").find({"adresss": {$size :5}}).toArray((error,Users )=>{
+//     if(error)
+// {
+//     console.log("error")
+// }       
+// console.log(Users)
+// })
+//sort
+// db.collection("Users").find().sort({empid:-1}).toArray((error,Users )=>{
+//     if(error)
+// {
+//     console.log("error")
+// }       
+// console.log(Users)
+// })
+// inc - increment
+// const innnn =
+ //db.collection("Users").updateOne({"name" : "Vanshu"},{ $inc: { empid:2}})
+// console.log(innnn)
+// .toArray((error,Users )=>{
+//     if(error)
+// {
+//     console.log(error)
+// }       
+// console.log(Users)
+// })
+//rename
+//db.collection("Users").updateOne({empid :1},{$rename:{'name':'Namee','empid':'Empidd'}})
+
+//
+
+// db.collection('Users').find({$text:{$search : "keethu"}}).toArray((error,Users )=>{
+//         if(error)
+//     {
+//         console.log("error")
+//     }       
+//     console.log(Users)
+//     })
+
+
+//set function
+//db.collection('Users').updateOne({empid:4}, {$set:{"email":"golu@gmail.com"}})
+
+//pop
+//-1 to pop first Element
+//1 to pop the last element
+
+//db.collection('Users').updateOne({achieve: 71 }, { $pop: { achieve : -1 }})
+
+//db.student.find().pretty();
+
+
+//db.collection('Users').updateOne({ achieve :  71 }, { $pull: { acheive: 71 }} )
+
+//db.collection('Users').updateOne({"name": "Golu"},{$pull : { "name" : "Golu"}})
+//db.collection('Users').find()
+//db.collection('Users').updateOne( { "name" : "sharath" }, { $pullAll: { "achieve": [80,84,91] }} );
+
+//db.collection('Users').updateOne( { "name" : "sharath" },{ $push: { "achieve": 95 } })
+  
+
+
+
+
+
+
+
+
+
+})
     
 
 
