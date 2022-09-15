@@ -1,6 +1,7 @@
-const { insertMany } = require('../model');
+const { insertMany, db } = require('../model');
 const mongodb = require('mongodb')
 const MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectId;
 
 const connectionURL = 'mongodb://localhost:27017'
 const databasename = 'all-functions'
@@ -290,20 +291,28 @@ MongoClient.connect(connectionURL,(error,client)=>{
 //db.collection('Users').updateOne( { "name" : "sharath" }, { $pullAll: { "achieve": [80,84,91] }} );
 
 //db.collection('Users').updateOne( { "name" : "sharath" },{ $push: { "achieve": 95 } })
-  
+ 
+// db.collection('Users').find({
+//     "empid": {
+//         "$elemMatch": {
+//           "_id": ObjectId("631b076018b13f0449f65dec"),
+//           "default": true
+//         }
+//       }
+//     }, {
+//       "address.$._id": "631b076018b13f0449f65ded" // "accounts.$": 1 also works
+//     }).toArray((error,Users )=>{
+//                 if(error)
+//             {
+//                 console.log("error")
+//             }       
+//         console.log(Users)
+//         })
 
-
-
-
-
-
-
-
+// })
+//     db.collection('Users').updateOne({
+//         "address._id": "631b090dd2834a68f2852c61"
+//   },{$set:{"address.$.city":"Manipal"}})
 
 })
-    
-
-
-
-
 
